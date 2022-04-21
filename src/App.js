@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import EmployeeForm from "./components/EmployeeForm";
+import axios from "axios";
+import { useCallback } from "react";
 
 function App() {
+  const sendEmployeeData = useCallback(async () => {});
+
+  async function addEmployeeHandle(employee) {
+    axios
+      .post(
+        "https://testing-6fe69-default-rtdb.firebaseio.com/Employees.json",
+        {
+          firstName: employee.fName,
+          lastName: employee.lName,
+          email: employee.eEmail,
+        }
+      )
+      .then(console.log(employee));
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <EmployeeForm onAddEmployee={addEmployeeHandle} />
+    </>
   );
 }
 
