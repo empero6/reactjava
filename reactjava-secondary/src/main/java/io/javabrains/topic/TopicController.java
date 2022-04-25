@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import lombok.Getter;
-import lombok.Setter;
+
 
 @RestController
 public class TopicController {
@@ -25,8 +24,9 @@ public class TopicController {
 
 	}
 
+	// set get topic to an int instead of string
 	@RequestMapping("/topics/{id}")
-	public Topic getTopic(@PathVariable String id) {
+	public Topic getTopic(@PathVariable int id) {
 		return topicService.getTopic(id);
 	}
 

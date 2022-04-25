@@ -36,8 +36,8 @@ public class TopicService {
     	topicRepository.delete(id);
     }
 
-	public Topic getTopic(String id) {
-		// TODO Auto-generated method stub
+    // changed get topic to int instead of a string
+	public Topic getTopic(int id) {
 		return getTopic(id);
 	}
 

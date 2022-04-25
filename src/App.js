@@ -1,27 +1,24 @@
 import "./App.css";
-import EmployeeForm from "./components/EmployeeForm";
+import TopicForm from "./components/TopicForm";
 import axios from "axios";
-import { useCallback } from "react";
 
 function App() {
-  const sendEmployeeData = useCallback(async () => {});
-
-  async function addEmployeeHandle(employee) {
-    axios
-      .post(
-        "https://testing-6fe69-default-rtdb.firebaseio.com/Employees.json",
-        {
-          firstName: employee.fName,
-          lastName: employee.lName,
-          email: employee.eEmail,
-        }
-      )
-      .then(console.log(employee));
+  async function sendTopicData(topic) {
+    try {
+      axios
+        .post("https://testing-6fe69-default-rtdb.firebaseio.com/Topic.json", {
+          firstName: topic.fName,
+          description: topic.description,
+        })
+        .then(console.log(topic));
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
     <>
-      <EmployeeForm onAddEmployee={addEmployeeHandle} />
+      <TopicForm onAddTopic={sendTopicData} />
     </>
   );
 }
