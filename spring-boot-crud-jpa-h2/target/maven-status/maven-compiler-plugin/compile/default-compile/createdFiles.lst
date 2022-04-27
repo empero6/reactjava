@@ -1,0 +1,5 @@
+com\tbp\crud\service\UserService.class
+com\tbp\crud\dao\UserRepository.class
+com\tbp\crud\controller\UserController.class
+com\tbp\crud\SpringBootCrudJpaH2Application.class
+com\tbp\crud\entity\User.class

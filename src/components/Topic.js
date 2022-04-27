@@ -8,7 +8,7 @@ const Topic = (props) => {
           key={topic.id}
           id={topic.id}
           fName={topic.fName}
-          description={topic.description}
+          address={topic.description}
         />;
       })}
     </>
