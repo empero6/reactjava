@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tbp.crud.entity.User;
 import com.tbp.crud.service.UserService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @RestController
 public class UserController {
 	@Autowired
