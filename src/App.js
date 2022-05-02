@@ -4,26 +4,35 @@ import axios from "axios";
 
 function App() {
   async function sendTopicData(topic) {
-    // try {
-    //   axios
-    //     .post("http://localhost:8888/addUsers", {
-    //       id: 1,
-    //       name: topic.fName,
-    //       address: topic.description,
-    //     })
-    //     .then(console.log(topic));
-    // } catch (error) {
-    //   console.log(error);
-    // }
-    const userFetch = await fetch("http://localhost:8888/user/1");
+    try {
+      axios
+        .post("http://localhost:8888/addUsers", {
+          id: Math.floor(Math.random() * 100),
+          name: topic.fName,
+          address: topic.description,
+        })
+        .then(console.log(topic));
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-    const petData = await userFetch.json();
-    console.log(petData);
+  async function getTopicData() {
+    axios
+      .get("http://localhost:8888/users/")
+      .then(function (response) {
+        const employeeData = response.data;
+        console.log(employeeData);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   return (
     <>
       <TopicForm onAddTopic={sendTopicData} />
+      <button onClick={getTopicData}>Get Data</button>
     </>
   );
 }

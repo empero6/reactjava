@@ -52,8 +52,8 @@ const TopicForm = (props) => {
     }
 
     const topic = {
-      fName: firstNameInput,
-      description: descriptionInput,
+      name: firstNameInput,
+      address: descriptionInput,
       // eEmail: emailInput,
     };
 
